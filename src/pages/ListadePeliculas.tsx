@@ -17,13 +17,15 @@ const MovieListPage: React.FC = () => {
   useEffect(() => {
     searchMovies('', '');
   }, []);
+  const handleMovieClick = (imdbID: string) => {
+    console.log(`Clic en la película con IMDb ID: ${imdbID}`);
+    
+  };
 
   return (
     <div>
       <SearchBar onSearch={searchMovies} />
-      <MovieList movies={movies} onMovieClick={function (imdbID: string): void {
-        throw new Error('Function not implemented.');
-      } } />
+      <MovieList movies={movies} onMovieClick={handleMovieClick} />
     </div>
   );
 };

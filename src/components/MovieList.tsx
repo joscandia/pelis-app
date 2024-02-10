@@ -1,5 +1,6 @@
 // components/MovieList.tsx
 import React from 'react';
+import '../css/movielist.css'
 
 interface Movie {
   Title: string;
