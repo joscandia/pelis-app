@@ -12,7 +12,7 @@ export const fetchMovies = async (title: string, year: string) => {
   const response = await api.get('', { params: { s: title, y: year } });
   return response.data.Search;
 };
-export const fetchMovieById = async (id: string) => {
-    const response = await api.get('', { params: { i: id } });
+export const fetchMovieById = async (imdbID: string) => {
+    const response = await api.get('', { params: { i: imdbID } });
     return response.data;
   };
