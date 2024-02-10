@@ -1,4 +1,3 @@
-// pages/MovieListPage.tsx
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies } from '../services/api';
@@ -16,13 +15,15 @@ const MovieListPage: React.FC = () => {
   };
 
   useEffect(() => {
-    searchMovies('', ''); // Puedes inicializar con valores predeterminados o dejar en blanco
+    searchMovies('', '');
   }, []);
 
   return (
     <div>
       <SearchBar onSearch={searchMovies} />
-      <MovieList movies={movies} />
+      <MovieList movies={movies} onMovieClick={function (imdbID: string): void {
+        throw new Error('Function not implemented.');
+      } } />
     </div>
   );
 };
