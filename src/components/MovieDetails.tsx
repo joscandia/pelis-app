@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Movielist {
+interface Moviedetails {
   Title: string;
   Rating: number;
   Director: string;
@@ -10,7 +10,7 @@ interface Movielist {
 }
 
 interface MovieDetailProps {
-  movie: Movielist | undefined; // Cambia a un solo objeto Movielist en lugar de un arreglo
+  movie: Moviedetails | undefined; // Cambia a un solo objeto Movielist en lugar de un arreglo
 }
 
 const MovieDetail: React.FC<MovieDetailProps> = ({ movie }) => {
@@ -26,7 +26,6 @@ const MovieDetail: React.FC<MovieDetailProps> = ({ movie }) => {
       <p>{movie.Plot}</p>
       <p>Director: {movie.Director}</p>
       <p>Actors: {movie.Actors}</p>
-      {/* Otros detalles que consideres convenientes */}
     </div>
   );
 };
