@@ -1,4 +1,4 @@
-// redux/reducers/movieReducer.ts
+
 import { SET_MOVIES, SET_MOVIE_DETAIL } from '../actions/movieActions';
 
 interface MovieState {
