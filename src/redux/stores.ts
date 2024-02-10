@@ -1,0 +1,11 @@
+// redux/store.ts
+import { createStore, combineReducers } from 'redux';
+import movieReducer from '../redux/reducers/movieReducers';
+
+const rootReducer = combineReducers({
+  movies: movieReducer,
+});
+
+const store = createStore(rootReducer);
+
+export default store;
