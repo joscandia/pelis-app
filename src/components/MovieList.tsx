@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Card, CardContent, Dialog, DialogContent, Typography, CircularProgress, Grow, Grid, CardMedia } from '@mui/material';
+import {
+  Button,
+  Card,
+  CardContent,
+  Dialog,
+  DialogContent,
+  Typography,
+  CircularProgress,
+  Grid,
+  CardMedia,
+} from '@mui/material';
 import { green } from '@mui/material/colors';
 import { fetchMovieById } from '../services/api';
 
@@ -30,11 +40,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieClick }) => {
   const [showMovies, setShowMovies] = useState(false);
 
   useEffect(() => {
-    if (movies && movies.length > 0) {
-      setShowMovies(true);
-    } else {
-      setShowMovies(false);
-    }
+    setShowMovies(!!movies && movies.length > 0);
   }, [movies]);
 
   const handleDetailsClick = async (imdbID: string) => {
@@ -44,7 +50,12 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieClick }) => {
     try {
       const movieDetails = await fetchMovieById(imdbID);
       console.log('Movie Details:', movieDetails);
-      setSelectedMovie(movieDetails);
+
+      // Agregar imdbRating al objeto movie antes de mostrar el pop-up
+      const imdbRating = movieDetails.imdbRating !== undefined ? movieDetails.imdbRating : 'N/A';
+
+      const movieWithRating = { ...movieDetails, imdbRating: movieDetails.imdbRating || 'N/A' };
+      setSelectedMovie(movieWithRating);
     } catch (error) {
       console.error('Error fetching movie details:', error);
       // Manejar el error, posiblemente mostrar un mensaje al usuario
@@ -71,6 +82,9 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieClick }) => {
                 </Typography>
                 <Typography color="textSecondary">
                   Año: {movie.Year}
+                </Typography>
+                <Typography color="textSecondary" >
+               
                 </Typography>
                 <Button variant="contained" style={{ backgroundColor: color }}>
                   Detalles

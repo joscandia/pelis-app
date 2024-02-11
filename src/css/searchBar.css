@@ -1,6 +1,23 @@
+/* searchBar.css */
 .container {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: auto; /* Ajusta la altura según sea necesario */
-  }
+  display: flex;
+  flex-direction:row; /* Cambia a disposición de columna */
+  align-items: center;
+  height: auto;
+  margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+}
+
+.search-title {
+  background-color: #4ef099;
+  color: white;
+  padding: 13px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Agrega margen interno a los TextField y Button */
+.TextField,
+.Button {
+  margin-bottom: 10px;
+}
