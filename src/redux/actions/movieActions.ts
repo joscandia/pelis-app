@@ -1,10 +1,8 @@
-// redux/actions/movieActions.ts
 export interface Moviedetails {
   Title: string;
   Rating: number;
   Director: string;
   Actors: string;
-  Plot: string;
   Poster: string;
 }
 
@@ -16,7 +14,14 @@ export const setMovies = (movies: any[]) => ({
   payload: movies,
 });
 
-export const setMovieDetail = (movieDetail: Moviedetails | null = null) => ({
-  type: SET_MOVIE_DETAIL,
-  payload: movieDetail,
+export const setMovieDetail = (movieDetail: Moviedetails | undefined) => ({
+  type: 'SET_MOVIE_DETAIL',
+  payload: movieDetail || {
+    Title: '',
+    Rating: 0,
+    Director: '',
+    Actors: '',
+    Plot: '',
+    Poster: '',
+  },
 });

@@ -5,9 +5,14 @@ interface MovieState {
   movieDetail: any | null;
 }
 const initialState = {
-  movies: null,
-  movieDetail: null as Moviedetails | null, 
-}
+  movieDetail: {
+    Title: '',
+    Rating: 0,
+    Director: '',
+    Actors: '',
+    Poster: '',
+  },
+};
 
 const moviesReducer = (state = initialState, action: any) => {
   switch (action.type) {
