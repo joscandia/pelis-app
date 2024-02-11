@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { green } from '@mui/material/colors';
 import { fetchMovieById } from '../services/api';
-
+import '../css/movielist.css'
 const color = green[600];
 
 interface Movie {
@@ -51,7 +51,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieClick }) => {
       const movieDetails = await fetchMovieById(imdbID);
       console.log('Movie Details:', movieDetails);
 
-      // Agregar imdbRating al objeto movie antes de mostrar el pop-up
+    
       const imdbRating = movieDetails.imdbRating !== undefined ? movieDetails.imdbRating : 'N/A';
 
       const movieWithRating = { ...movieDetails, imdbRating: movieDetails.imdbRating || 'N/A' };
