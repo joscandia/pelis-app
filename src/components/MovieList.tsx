@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Card, CardContent, Dialog, DialogContent, Typography, CircularProgress, Grow, Grid } from '@mui/material';
+import { Button, Card, CardContent, Dialog, DialogContent, Typography, CircularProgress, Grow, Grid, CardMedia } from '@mui/material';
 import { green } from '@mui/material/colors';
 import { fetchMovieById } from '../services/api';
 
@@ -47,6 +47,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieClick }) => {
       setSelectedMovie(movieDetails);
     } catch (error) {
       console.error('Error fetching movie details:', error);
+      // Manejar el error, posiblemente mostrar un mensaje al usuario
     } finally {
       setLoading(false);
       setOpenModal(true);
@@ -63,6 +64,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, onMovieClick }) => {
         movies?.map((movie) => (
           <Grid item key={movie.imdbID}>
             <Card className="movie-card" onClick={() => handleDetailsClick(movie.imdbID)}>
+              <CardMedia component="img" height="200" image={movie.Poster} alt={movie.Title} />
               <CardContent>
                 <Typography variant="h6" component="div">
                   {movie.Title}
