@@ -1,4 +1,3 @@
-// redux/store.ts
 import { legacy_createStore as createStore, combineReducers } from 'redux';
 import movieReducer from '../redux/reducers/movieReducers';
 

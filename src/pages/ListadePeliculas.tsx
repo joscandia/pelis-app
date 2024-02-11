@@ -21,7 +21,7 @@ const MovieListPage: React.FC = () => {
     console.log(`Clic en la película con IMDb ID: ${imdbID}`);
     
   };
-
+//implementar pagina proximamente jeje
   return (
     <div>
       <SearchBar onSearch={searchMovies} />
