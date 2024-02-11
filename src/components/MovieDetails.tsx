@@ -1,19 +1,25 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 interface Moviedetails {
   Title: string;
   Rating: number;
   Director: string;
   Actors: string;
-  Plot: string; // Agrega Plot si también es una propiedad de las películas
-  Poster: string; // Agrega Poster si también es una propiedad de las películas
+  Plot: string;
+  Poster: string; 
 }
 
 interface MovieDetailProps {
-  movie: Moviedetails | undefined; // Cambia a un solo objeto Movielist en lugar de un arreglo
+  movie: Moviedetails | undefined;
 }
 
 const MovieDetail: React.FC<MovieDetailProps> = ({ movie }) => {
+  const { id } = useParams<{ id: string }>();
+  const dispatch = useDispatch();
+  const movieDetail = useSelector((state: any) => state.movies.movieDetail);
+  console.log('Movie Details:', movie);
   if (!movie) {
     return <div>No se encontró la película.</div>;
   }

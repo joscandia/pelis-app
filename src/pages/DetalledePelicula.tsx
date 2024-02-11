@@ -1,4 +1,3 @@
-// pages/MovieDetailPage.tsx
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,25 +9,25 @@ const MovieDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch();
   const movieDetail = useSelector((state: any) => state.movies.movieDetail);
-  const loadMovieDetail = async () => {
-    try {
-      if (!id) {
-        console.error('ID is undefined');
-        return;
-      }
+  console.log('Movie Detail from Store:', movieDetail);
   
-      const data = await fetchMovieById(id);
-      console.log('Movie Detail Data:', data);
-      dispatch(setMovieDetail(data));
-    } catch (error) {
-      console.error('Error fetching movie detail:', error);
-    }
-  };
-  
-
   useEffect(() => {
+    const loadMovieDetail = async () => {
+      try {
+        if (!id) {
+          console.error('ID is undefined');
+          return;
+        }
+
+        const data = await fetchMovieById(id);
+        dispatch(setMovieDetail(data));
+      } catch (error) {
+        console.error('Error fetching movie detail:', error);
+      }
+    };
+
     loadMovieDetail();
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <div>

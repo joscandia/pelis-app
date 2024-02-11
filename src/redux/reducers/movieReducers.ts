@@ -1,17 +1,15 @@
-
-import { SET_MOVIES, SET_MOVIE_DETAIL } from '../actions/movieActions';
+import { Moviedetails, SET_MOVIES, SET_MOVIE_DETAIL } from '../actions/movieActions';
 
 interface MovieState {
-  movies: any[];
+  movies: any[] | null; // Ajuste aquí
   movieDetail: any | null;
 }
+const initialState = {
+  movies: null,
+  movieDetail: null as Moviedetails | null, 
+}
 
-const initialState: MovieState = {
-  movies: [],
-  movieDetail: null,
-};
-
-const movieReducer = (state = initialState, action: any) => {
+const moviesReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case SET_MOVIES:
       return { ...state, movies: action.payload };
@@ -21,5 +19,4 @@ const movieReducer = (state = initialState, action: any) => {
       return state;
   }
 };
-
-export default movieReducer;
+export default moviesReducer;

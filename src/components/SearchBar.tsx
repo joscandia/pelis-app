@@ -32,7 +32,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       //style={{ width: '120px', height: '20px' }} 
       variant="outlined"
       multiline
-      rows={1}  // Puedes ajustar esto según tus necesidades
+      rows={1}  
       maxRows={5}
       InputProps={{ style: { fontSize: 16 } }}
       value={year}
