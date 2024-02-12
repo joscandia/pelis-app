@@ -5,8 +5,8 @@ Esta es una aplicación web de React que permite buscar y explorar información 
 ## Funcionalidades
 
 - **Buscador:** Permite buscar películas por título y año.
-- **Listado de Películas:** Muestra un listado de películas con detalles como imagen, título, rating y descripción corta.
-- **Detalle de Película:** Al hacer clic en una película del listado, se muestra una pantalla con detalles más extensos como imagen/es, nombre, rating, descripción larga, director, listado de actores y otros datos relevantes.
+- **Listado de Películas:** Muestra un listado de películas con detalles como imagen, título, rating.
+- **Detalle de Película:** Al hacer clic en una película del listado, se muestra una pantalla con detalles más extensos como imagen/es, nombre, rating, descripción larga, director, listado de actores.
 
 ## Tecnologías Utilizadas
 
