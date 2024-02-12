@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/moviedetails.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -28,13 +29,13 @@ console.log('Movie Detail State:', movieDetailState);
   }
 
   return (
-    <div>
-      <img src={movie.Poster} alt={movie.Title} />
-      <h2>{movie.Title}</h2>
-      <p>Rating: {movie.Rating}</p>
-      <p>Director: {movie.Director}</p>
-      <p>Actors: {movie.Actors}</p>
-    </div>
+    <div className="container">
+  <img src={movie.Poster} alt={movie.Title} />
+  <h2>{movie.Title}</h2>
+  <p>Rating: {movie.Rating}</p>
+  <p>Director: {movie.Director}</p>
+  <p>Actors: {movie.Actors}</p>
+</div>
   );
 };
 

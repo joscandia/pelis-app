@@ -1,0 +1,8 @@
+.container {
+    text-align: center; /* Centra los elementos horizontalmente */
+  }
+  
+  .container img {
+    display: block; 
+    margin: 10px; 
+  }
